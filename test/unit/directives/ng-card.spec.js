@@ -3,6 +3,7 @@
 describe('Directive: ngCard', function () {
   var scope;
   var $compile;
+  var isolatedScope;
 
   beforeEach(angular.mock.module('ngCard'));
 
@@ -17,8 +18,10 @@ describe('Directive: ngCard', function () {
 
     beforeEach(function () {
       scope.card = {};
+      scope.form = {};
       element = $compile(template)(scope);
       scope.$apply();
+      isolatedScope = element.isolateScope();
     });
 
     afterEach(function () {
@@ -26,7 +29,7 @@ describe('Directive: ngCard', function () {
     });
 
     it('should set default placeholder', function() {
-      expect(scope.placeholder).toEqual('Card number');
+      expect(isolatedScope.placeholder).toEqual('Card number');
     });
   });
 });

@@ -72,6 +72,27 @@ module.exports = function(grunt) {
         src: 'src/partials/**/*.html',
         dest: 'src/scripts/templates.js'
       }
+    },
+    concurrent: {
+      options: {
+        logConcurrentOutput: true,
+        limit: 10
+      },
+      development: [
+        "connect:development",
+        "watch"
+      ]
+    },
+    connect: {
+      development: {
+        options: {
+          hostname: 'localhost',
+          port: 8080,
+          keepalive: true,
+          protocol: 'http',
+          base: '<%= pkg.config.buildDir %>'
+        }
+      }
     }
   });
 
@@ -79,12 +100,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-concurrent');
 
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-angular-templates');
   grunt.registerTask('build', ['jshint', 'ngtemplates', 'browserify:main']);
-  grunt.registerTask('test', ['build', 'karma']);
+  grunt.registerTask('test', ['build', 'karma', 'concurrent:development']);
 
   grunt.registerTask('default', ['build', 'karma:ci', 'concat', 'uglify']);
 };

@@ -5,11 +5,15 @@ angular.module('ngCard').directive('ngCard', function () {
     templateUrl: 'src/partials/ng-card.html',
     restrict: 'E',
     replace: true,
+    scope: {
+      placeholder: '@',
+      errorMessage: '@',
+      form: '=',
+      validationCode: '@'
+    },
     link: function(scope, element, attrs, ngModel) {
-      scope.placeholder = attrs.placeholder || 'Card number';
-      scope.errorMessage = attrs.errorMessage || 'Card number is not valid';
-      scope.form = attrs.form;
-      var validationCode = attrs.validationCode || 'cardNumber';
+      scope.placeholder = scope.placeholder || 'Card number';
+      scope.validationCode = scope.validationCode || 'cardNumber';
 
       //ngModel.$parsers.unshift(function(value) {
       //   var valid = card(value).isValid();

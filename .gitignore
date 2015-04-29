@@ -1,0 +1,9 @@
+*.log
+tmp/*
+node_modules/*
+build/*
+example/build/*
+coverage/*
+bower_components/*
+.idea/*
+workspace.xml

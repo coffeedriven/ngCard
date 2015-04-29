@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['src/**/*.js', '<%= ngtemplates.app.dest %>'],
+        src: ['src/**/*.js', '<%= ngtemplates.ngCard.dest %>'],
         dest: 'dist/ngCard.js'
       }
     },
@@ -40,7 +40,8 @@ module.exports = function(grunt) {
           it: true,
           expect: true,
           angular: true,
-          inject: true
+          inject: true,
+          require: true
         }
       }
     },

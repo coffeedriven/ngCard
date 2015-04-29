@@ -1,0 +1,56 @@
+{
+  "name": "ngCard",
+  "version": "0.0.1",
+  "description": "AngularJS library for handling credit cards based on card.js",
+  "homepage": "https://github.com/coffeedriven/ngCard",
+  "author": "Maciej Dzikowicki <mdzikowicki@gmail.com> (http://coffeedriven.org/)",
+  "keywords": [
+    "card",
+    "luhn",
+    "validation",
+    "validate",
+    "creditcard"
+  ],
+  "main": "./src/card.js",
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coffeedriven/cardjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coffeedriven/cardjs/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "browserify": "8.1.3",
+    "browserify-istanbul": "0.1.3",
+    "grunt": "latest",
+    "grunt-angular-templates": "~0.5.0",
+    "grunt-browserify": "^3.6.0",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-nodeunit": "latest",
+    "grunt-contrib-uglify": "0.8.0",
+    "grunt-contrib-watch": "latest",
+    "grunt-karma": "latest",
+    "jasmine-core": "2.2.0",
+    "karma": "0.12.31",
+    "karma-browserifast": "^0.7.0",
+    "karma-coverage": "0.2.6",
+    "karma-jasmine": "0.3.5",
+    "karma-phantomjs-launcher": "0.1.4"
+  },
+  "scripts": {
+    "test": "grunt karma:ci"
+  },
+  "dependencies": {
+    "card.js": "0.0.2"
+  }
+}
